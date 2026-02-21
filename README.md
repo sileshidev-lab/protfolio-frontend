@@ -1,7 +1,7 @@
 <div align="center">
   
-  <!-- Professional Header -->
-  <img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=600&size=24&pause=1000&color=2563EB&center=true&vCenter=true&width=600&lines=Software+Developer+%26+Cybersecurity+Professional;Building+Secure+and+Scalable+Solutions;20+Years+Old+%7C+Passionate+About+Technology" alt="Professional Header" />
+  <!-- Animated Header -->
+  <img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=600&size=24&pause=1000&color=2563EB&center=true&vCenter=true&width=600&lines=Software+Developer;Building+Modern+Web+Applications;Clean+Code+%7C+Scalable+Solutions" alt="Developer Header" />
   
   <br/><br/>
   
@@ -13,84 +13,79 @@
 
 <br/>
 
-## 👨‍💻 Professional Summary
+## 👨‍💻 About Me
 
-> **20-Year-Old Software Developer & Cybersecurity Professional** based in Addis Ababa, Ethiopia 🇪🇹
+> **Full-Stack Developer** passionate about building clean, scalable web applications
 
-I am a dedicated and ambitious technology professional with expertise in **software development** and **cybersecurity**. With a strong foundation in both disciplines, I specialize in building secure, scalable applications while implementing robust security measures to protect digital assets.
+I'm a dedicated software developer with expertise in modern web technologies. I specialize in creating full-stack applications with clean architecture, focusing on performance and user experience.
 
-### Core Competencies
-
-- **Software Development:** Full-stack application development with modern frameworks
-- **Cybersecurity:** Security assessment, penetration testing, and secure architecture design
-- **Cloud Technologies:** AWS, Azure, and GCP implementation and security hardening
-- **DevSecOps:** Integrating security practices into CI/CD pipelines
+- 🚀 Building modern web applications with React, Vue.js, and Node.js
+- 💻 Backend development with Java, Spring Boot, Python, and FastAPI
+- 🗄️ Database design and optimization
+- 📱 Mobile app development with Flutter
+- 🐳 Containerization with Docker and Kubernetes
 
 <br/>
 
-## 🛠️ Technical Expertise
+## 🛠️ Tech Stack
 
 ### Programming Languages
 <p align="left">
-  <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white&labelColor=007396" alt="Java"/>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=3776AB" alt="Python"/>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black&labelColor=F7DF1E" alt="JavaScript"/>
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white&labelColor=3178C6" alt="TypeScript"/>
-  <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white&labelColor=00ADD8" alt="Go"/>
+  <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white" alt="Java"/>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go"/>
 </p>
 
 ### Frameworks & Libraries
 <p align="left">
-  <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white&labelColor=6DB33F" alt="Spring Boot"/>
-  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white&labelColor=009688" alt="FastAPI"/>
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB&labelColor=20232A" alt="React"/>
-  <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white&labelColor=4FC08D" alt="Vue.js"/>
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white&labelColor=339933" alt="Node.js"/>
-  <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white&labelColor=000000" alt="Express"/>
+  <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white" alt="Spring Boot"/>
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI"/>
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React"/>
+  <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white" alt="Vue.js"/>
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"/>
+  <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express"/>
 </p>
 
 ### Databases & Storage
 <p align="left">
-  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white&labelColor=47A248" alt="MongoDB"/>
-  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white&labelColor=4169E1" alt="PostgreSQL"/>
-  <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white&labelColor=DC382D" alt="Redis"/>
-  <img src="https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=elasticsearch&logoColor=white&labelColor=005571" alt="Elasticsearch"/>
+  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis"/>
+  <img src="https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=elasticsearch&logoColor=white" alt="Elasticsearch"/>
 </p>
 
-### DevOps & Cloud
+### DevOps & Tools
 <p align="left">
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white&labelColor=2496ED" alt="Docker"/>
-  <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white&labelColor=326CE5" alt="Kubernetes"/>
-  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white&labelColor=232F3E" alt="AWS"/>
-  <img src="https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white&labelColor=0078D4" alt="Azure"/>
-  <img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white&labelColor=7B42BC" alt="Terraform"/>
-  <img src="https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white&labelColor=D24939" alt="Jenkins"/>
-</p>
-
-### Cybersecurity & Tools
-<p align="left">
-  <img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white&labelColor=1679A7" alt="Wireshark"/>
-  <img src="https://img.shields.io/badge/Metasploit-1E3A8A?style=for-the-badge&logo=metasploit&logoColor=white&labelColor=1E3A8A" alt="Metasploit"/>
-  <img src="https://img.shields.io/badge/Nmap-4B5563?style=for-the-badge&logo=nmap&logoColor=white&labelColor=4B5563" alt="Nmap"/>
-  <img src="https://img.shields.io/badge/Burp%20Suite-FF6633?style=for-the-badge&logo=burp-suite&logoColor=white&labelColor=FF6633" alt="Burp Suite"/>
-  <img src="https://img.shields.io/badge/Splunk-000000?style=for-the-badge&logo=splunk&logoColor=white&labelColor=000000" alt="Splunk"/>
-</p>
-
-### Data Streaming
-<p align="left">
-  <img src="https://img.shields.io/badge/Apache%20Kafka-231F20?style=for-the-badge&logo=apache-kafka&logoColor=white&labelColor=231F20" alt="Kafka"/>
-  <img src="https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white&labelColor=FF6600" alt="RabbitMQ"/>
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
+  <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" alt="Kubernetes"/>
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git"/>
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+  <img src="https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code"/>
 </p>
 
 ### Mobile Development
 <p align="left">
-  <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white&labelColor=02569B" alt="Flutter"/>
-  <img src="https://img.shields.io/badge/React%20Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB&labelColor=20232A" alt="React Native"/>
+  <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter"/>
+</p>
+
+### Data Streaming
+<p align="left">
+  <img src="https://img.shields.io/badge/Apache%20Kafka-231F20?style=for-the-badge&logo=apache-kafka&logoColor=white" alt="Kafka"/>
+  <img src="https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white" alt="RabbitMQ"/>
+</p>
+
+### Styling & UI
+<p align="left">
+  <img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"/>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"/>
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
 </p>
 
 <br/>
 
-## 📊 GitHub Analytics
+## 📊 GitHub Stats
 
 <div align="center">
   
@@ -133,25 +128,22 @@ I am a dedicated and ambitious technology professional with expertise in **softw
 ## 💼 Professional Experience
 
 ### Current Role
-**Software Engineer & Security Specialist**
-- Developing secure full-stack applications using Spring Boot, FastAPI, and React
-- Implementing DevSecOps practices and CI/CD pipelines
-- Conducting security assessments and vulnerability management
-- Architecting cloud-native solutions on AWS and Azure
+**Software Engineer**
+- Developing full-stack applications using Spring Boot, FastAPI, and React
+- Building RESTful APIs and microservices architectures
+- Database design and optimization for scalable applications
+- Implementing CI/CD pipelines with Docker and Kubernetes
 
 ### Key Projects
 - **AI-Powered Learning Management System** - Full-stack application with AI integration
-- **Secure Microservices Architecture** - Containerized services with Kubernetes orchestration
-- **Cloud Security Implementation** - AWS infrastructure hardening and monitoring
+- **Microservices Architecture** - Containerized services with Kubernetes orchestration
+- **Real-time Data Processing** - Event-driven architecture with Kafka and RabbitMQ
 
 <br/>
 
-## 🎓 Education & Certifications (In Progress)
+## 🎓 Education
 
-- **BSc in Computer Science** - Focus on Cybersecurity and Software Engineering
-- **AWS Certified Solutions Architect** (Preparation)
-- **CompTIA Security+** (Preparation)
-- **Certified Ethical Hacker (CEH)** (Planned)
+- **BSc in Computer Science** - Focus on Software Engineering
 
 <br/>
 
@@ -175,10 +167,10 @@ I am a dedicated and ambitious technology professional with expertise in **softw
 
 <div align="center">
   
-  **© 2025 Sileshi | Software Developer & Cybersecurity Professional**
+  **© 2025 Sileshi | Software Developer**
   
   <br/>
   
-  <img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=500&size=16&pause=1000&color=2563EB&center=true&vCenter=true&width=400&lines=Thank+you+for+visiting+my+profile!;Let's+build+something+secure+together." alt="Closing Message" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=500&size=16&pause=1000&color=2563EB&center=true&vCenter=true&width=400&lines=Thanks+for+visiting!;Let's+build+something+great+together." alt="Closing Message" />
   
 </div>
