@@ -5,36 +5,28 @@ const About = () => {
 
   const skillsData = [
     {
-      title: "Full-Stack Developer",
-      items: ["Building end-to-end applications", "Clean code principles", "Scalable architecture"]
+      title: "Frontend",
+      items: ["React", "Vue.js", "HTML5", "CSS3", "JavaScript", "Tailwind CSS"]
     },
     {
-      title: "Backend Expertise",
-      items: ["Java", "Spring Boot", "Python", "FastAPI", "Go"]
+      title: "Backend",
+      items: ["Node.js", "Express", "Java", "Spring Boot", "Python", "FastAPI", "Go"]
     },
     {
-      title: "Frontend Skills",
-      items: ["React", "Vue.js", "Node.js", "Express"]
-    },
-    {
-      title: "Database Design",
+      title: "Database",
       items: ["MongoDB", "PostgreSQL", "Redis", "Elasticsearch"]
     },
     {
-      title: "Mobile Development",
+      title: "Mobile",
       items: ["Flutter"]
     },
     {
       title: "DevOps",
-      items: ["Docker"]
+      items: ["Docker", "Git", "CI/CD"]
     },
     {
-      title: "Cybersecurity",
+      title: "Security",
       items: ["Penetration Testing", "Privacy Practices"]
-    },
-    {
-      title: "Location",
-      items: ["Addis Ababa, Ethiopia"]
     }
   ];
 
