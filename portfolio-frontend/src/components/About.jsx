@@ -40,9 +40,9 @@ const About = () => {
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/sileshidev-lab", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com/in/yourprofile", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com/yourhandle", label: "Twitter" },
-    { icon: Mail, href: "mailto:your.email@example.com", label: "Email" }
+    { icon: Linkedin, href: "https://www.linkedin.com/in/sileshiabrham/", label: "LinkedIn" },
+    { icon: Twitter, href: "https://x.com/sileshidev", label: "Twitter" },
+    { icon: Mail, href: "mailto:sileshidev@gmail.com", label: "Email" }
   ];
 
   return (
