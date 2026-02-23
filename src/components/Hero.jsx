@@ -99,9 +99,7 @@ const Hero = () => {
 
   return (
     <div ref={heroRef} className="hero-new">
-      <div className="spline-background">
-        <Spline scene="https://prod.spline.design/6Wq1Q7YGyl6C7c7m/scene.splinecode" />
-      </div>
+      <div className="hero-gradient-bg" />
 
       <div className="hero-content-new">
         <div className="hero-text-section">
