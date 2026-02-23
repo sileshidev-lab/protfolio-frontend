@@ -1,118 +1,175 @@
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Code2, Database, Globe, Shield, Smartphone, Terminal } from "lucide-react";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const transition = { duration: 0.8, ease: [0.22, 1, 0.36, 1] };
 
 const About = () => {
-  const isMobile = typeof window !== 'undefined' ? window.innerWidth <= 768 : false;
+  const sectionRef = useRef(null);
+  const skillsRef = useRef(null);
 
   const skillsData = [
     {
       title: "Frontend",
+      icon: Globe,
       items: ["React", "Vue.js", "HTML5", "CSS3", "JavaScript", "Tailwind CSS"]
     },
     {
       title: "Backend",
+      icon: Terminal,
       items: ["Node.js", "Express", "Java", "Spring Boot", "Python", "FastAPI", "Go"]
     },
     {
       title: "Database",
+      icon: Database,
       items: ["MongoDB", "PostgreSQL", "Redis", "Elasticsearch"]
     },
     {
       title: "Mobile",
+      icon: Smartphone,
       items: ["Flutter"]
     },
     {
       title: "DevOps",
+      icon: Code2,
       items: ["Docker", "Git", "CI/CD"]
     },
     {
       title: "Security",
+      icon: Shield,
       items: ["Penetration Testing", "Privacy Practices"]
     }
   ];
 
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/sileshidev-lab", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/sileshiabrham/", label: "LinkedIn" },
-    { icon: Twitter, href: "https://x.com/sileshidev", label: "Twitter" },
-    { icon: Mail, href: "mailto:sileshidev@gmail.com", label: "Email" }
-  ];
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (skillsRef.current) {
+        const cards = skillsRef.current.querySelectorAll(".skill-card");
+        gsap.fromTo(
+          cards,
+          { y: 80, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: skillsRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+              fastScrollEnd: true,
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <div className="about-container">
-      <div className="about-content-wrapper">
-        <div className="about-main-grid">
-          {/* Left Side - Skills & Info (60%) */}
-          <div className="skills-section">
-            <div className="skills-grid">
-              {skillsData.map((skill, index) => (
-                <div key={skill.title} className="skill-category" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="skill-header">
-                    <h4 className="skill-title">{skill.title}</h4>
-                  </div>
-                  <ul className="skill-list">
-                    {skill.items.map((item, itemIndex) => (
-                      <li key={itemIndex}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+    <section id="about" ref={sectionRef} className="py-24 px-6 bg-[#030711]">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={transition}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <p className="text-blue-400 font-semibold text-sm tracking-widest uppercase mb-4">
+            About Me
+          </p>
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+            Building Digital <span className="text-blue-500">Experiences</span>
+          </h2>
+          <p className="text-gray-400 text-lg leading-relaxed">
+            I&apos;m a passionate full-stack developer based in Addis Ababa, Ethiopia. 
+            With expertise in modern web technologies and a keen eye for design, 
+            I create scalable applications that deliver exceptional user experiences.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ ...transition, delay: 0.2 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="mb-16"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/50 transition-colors">
+              <h3 className="text-white text-xl font-bold mb-4">Academic Education</h3>
+              <ul className="space-y-3 text-gray-400">
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-blue-500 mt-2 shrink-0" />
+                  INSA 4th Batch Cyber Talent Graduate
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-blue-500 mt-2 shrink-0" />
+                  Currently learning Diploma in IT
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-blue-500 mt-2 shrink-0" />
+                  Scholarship recipient for Micro English Access Program
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/50 transition-colors">
+              <h3 className="text-white text-xl font-bold mb-4">Professional Certifications</h3>
+              <ul className="space-y-3 text-gray-400">
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-purple-500 mt-2 shrink-0" />
+                  DevOps Foundations: Microservices
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-purple-500 mt-2 shrink-0" />
+                  Programming Foundations: Design Patterns
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-purple-500 mt-2 shrink-0" />
+                  Programming Foundations: Fundamentals
+                </li>
+              </ul>
             </div>
           </div>
+        </motion.div>
 
-          {/* Right Side - About Me + Socials (40%) */}
-          <div className="about-info-section">
-            <div className="about-header">
-              <h2 className="about-title">ABOUT ME</h2>
-              <p className="about-description">
-                Building modern web applications with clean code and scalable architecture.
-              </p>
-            </div>
-
-            {/* Social Media Icons */}
-            <div className="social-links">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-link"
-                    aria-label={social.label}
-                    style={{ animationDelay: `${index * 0.15}s` }}
-                  >
-                    <Icon className="social-icon" />
-                  </a>
-                );
-              })}
-            </div>
-
-            {/* Education Section - Full width */}
-            <div className="education-section">
-              <div className="education-grid">
-                <div className="education-category">
-                  <h4 className="education-title">Academic Education</h4>
-                  <ul className="education-list">
-                    <li>INSA 4th Batch Cyber Talent Graduate</li>
-                    <li>Currently learning Diploma in IT</li>
-                    <li>Scholarship recipient for Micro English Access Program (Saint Mary's University & US Embassy)</li>
-                  </ul>
+        <div ref={skillsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillsData.map((skill) => {
+            const Icon = skill.icon;
+            return (
+              <div
+                key={skill.title}
+                className="skill-card group bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-blue-500/50 hover:bg-white/10 transition-all duration-300"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
+                    <Icon className="text-blue-400" size={24} />
+                  </div>
+                  <h4 className="text-white text-lg font-bold">{skill.title}</h4>
                 </div>
-                <div className="education-category">
-                  <h4 className="education-title">Professional Certifications</h4>
-                  <ul className="education-list">
-                    <li>DevOps Foundations: Microservices</li>
-                    <li>Programming Foundations: Design Patterns</li>
-                    <li>Programming Foundations: Fundamentals</li>
-                  </ul>
+                <div className="flex flex-wrap gap-2">
+                  {skill.items.map((item) => (
+                    <span
+                      key={item}
+                      className="px-3 py-1 text-sm bg-white/10 text-gray-300 rounded-full group-hover:bg-blue-500/20 group-hover:text-blue-300 transition-colors"
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
