@@ -1,15 +1,6 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion } from 'framer-motion';
-import { ExternalLink, Github, Bot, Languages, BookOpen, LineChart, ArrowUpRight } from 'lucide-react';
-
-gsap.registerPlugin(ScrollTrigger);
+import { ExternalLink, Github, Bot, Languages, BookOpen, LineChart } from "lucide-react";
 
 const Projects = () => {
-  const sectionRef = useRef(null);
-  const cardsRef = useRef([]);
-
   const projects = [
     {
       name: "KMC AI Learning System",
@@ -19,7 +10,6 @@ const Projects = () => {
       icon: Bot,
       link: "https://github.com/sileshidev-lab/KMCLEARNWITHAI",
       features: ["Multilingual support", "JWT authentication", "Progress tracking"],
-      color: "#6366f1"
     },
     {
       name: "NLP Tools for Amharic",
@@ -29,7 +19,6 @@ const Projects = () => {
       icon: Languages,
       link: "#",
       features: ["Custom tokenizer", "BERT-based models", "Open source"],
-      color: "#10b981"
     },
     {
       name: "TVET Course Manager",
@@ -39,7 +28,6 @@ const Projects = () => {
       icon: BookOpen,
       link: "#",
       features: ["Curriculum mapping", "Assessment tools", "Reporting"],
-      color: "#f59e0b"
     },
     {
       name: "Learning Analytics Dashboard",
@@ -49,156 +37,71 @@ const Projects = () => {
       icon: LineChart,
       link: "#",
       features: ["Data visualization", "Predictive analytics", "Export tools"],
-      color: "#ec4899"
     },
   ];
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      cardsRef.current.forEach((card, index) => {
-        if (card) {
-          gsap.fromTo(
-            card,
-            { 
-              y: 100, 
-              opacity: 0,
-              rotateY: index % 2 === 0 ? -15 : 15,
-            },
-            {
-              y: 0,
-              opacity: 1,
-              rotateY: 0,
-              duration: 1,
-              ease: 'power4.out',
-              scrollTrigger: {
-                trigger: card,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse',
-              },
-              delay: index * 0.15,
-            }
-          );
-        }
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <div ref={sectionRef} className="projects-section-new">
-      <div className="projects-header">
-        <motion.span
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="section-eyebrow"
-        >
-          Featured Work
-        </motion.span>
-        <motion.h2
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="projects-title"
-        >
-          Projects That
-          <span className="gradient-text"> Make Impact</span>
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="projects-description"
-        >
+    <section id="projects" className="section">
+      <span className="section__eyebrow">Featured Work</span>
+      <div className="section__body">
+        <h2 className="animate-slideInLeft">Projects</h2>
+        <p>
           Here are some of the key projects I've been working on, focused on
           bringing AI-powered solutions to education in Ethiopia.
-        </motion.p>
-      </div>
-
-      <div className="projects-grid-new">
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.name}
-            ref={(el) => { cardsRef.current[index] = el; }}
-            className="project-card-new"
-            whileHover={{ 
-              y: -15,
-              scale: 1.02,
-              transition: { duration: 0.3 }
-            }}
-            style={{ '--project-color': project.color }}
-          >
-            <div className="project-card-header">
-              <div className="project-icon-wrapper" style={{ background: `${project.color}20` }}>
-                <project.icon className="project-icon" style={{ color: project.color }} />
-              </div>
-              <div className="project-links">
-                <motion.a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Github className="w-5 h-5" />
-                </motion.a>
-                <motion.a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <ExternalLink className="w-5 h-5" />
-                </motion.a>
+        </p>
+        <div className="grid gap-6 mt-8">
+          {projects.map((project, index) => (
+            <div
+              key={project.name}
+              className="group p-6 rounded-2xl border border-[var(--color-border)] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 animate-fadeInUp"
+              style={{ animationDelay: `${index * 0.15}s` }}
+            >
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-[var(--color-accent-soft)]">
+                  <project.icon className="w-6 h-6 text-[var(--color-accent)]" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-[var(--font-display)] text-xl">
+                      {project.name}
+                    </h3>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[var(--color-accent)] hover:text-white transition-colors"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
+                  </div>
+                  <p className="text-[var(--color-text-muted)] mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="px-3 py-1 text-xs rounded-full border border-[var(--color-border)] bg-white/[0.03]"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <ul className="flex flex-wrap gap-4 text-sm text-[var(--color-text-muted)]">
+                    {project.features.map((f) => (
+                      <li key={f} className="flex items-center gap-1">
+                        <span className="w-1 h-1 rounded-full bg-[var(--color-accent)]" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
-
-            <h3 className="project-name">{project.name}</h3>
-            <p className="project-description">{project.description}</p>
-
-            <div className="project-tech-stack">
-              {project.tech.map((t) => (
-                <span key={t} className="tech-badge-new">
-                  {t}
-                </span>
-              ))}
-            </div>
-
-            <ul className="project-features">
-              {project.features.map((f) => (
-                <li key={f}>
-                  <span className="feature-dot" style={{ background: project.color }} />
-                  {f}
-                </li>
-              ))}
-            </ul>
-
-            <div className="project-card-glow" style={{ background: project.color }} />
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="projects-cta"
-      >
-        <a 
-          href="https://github.com/sileshidev-lab" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="view-all-btn"
-        >
-          View All Projects
-          <ArrowUpRight className="w-5 h-5" />
-        </a>
-      </motion.div>
-    </div>
+    </section>
   );
 };
 
