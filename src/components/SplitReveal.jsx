@@ -1,20 +1,13 @@
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Spline from "@splinetool/react-spline";
-import NeuralNetwork from "./NeuralNetwork";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const transition = { duration: 0.8, ease: [0.22, 1, 0.36, 1] };
 
 const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
   const sectionRef = useRef(null);
   const topPanelRef = useRef(null);
   const bottomPanelRef = useRef(null);
-  const [splineLoaded, setSplineLoaded] = useState(false);
-  const [splineError, setSplineError] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -51,34 +44,9 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="relative h-[200vh] bg-white">
-      {/* Sticky container for scroll effect */}
+    <div ref={sectionRef} className="relative h-[200vh]">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Background - Spline 3D or NeuralNetwork fallback */}
-        <div className="absolute inset-0 z-0">
-          {!splineError ? (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: splineLoaded ? 1 : 0 }}
-              transition={{ duration: 1 }}
-              className="w-full h-full"
-            >
-              <Spline
-                scene="https://prod.spline.design/Jb6rPXssj6abNfmi/scene.splinecode"
-                onLoad={() => setSplineLoaded(true)}
-                onError={() => setSplineError(true)}
-                className="w-full h-full"
-              />
-            </motion.div>
-          ) : null}
-          
-          {/* Fallback NeuralNetwork - always visible behind or when Spline fails */}
-          <div className={`absolute inset-0 transition-opacity duration-500 ${splineLoaded && !splineError ? 'opacity-0' : 'opacity-100'}`}>
-            <NeuralNetwork />
-          </div>
-        </div>
-
-        {/* Middle Content - Hidden behind panels, revealed on split */}
+        {/* Middle Content - Hidden behind panels initially */}
         {middleContent && (
           <div className="absolute inset-0 z-0 flex items-center justify-center">
             <div className="text-center px-6 max-w-4xl">
