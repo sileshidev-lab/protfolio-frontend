@@ -24,7 +24,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
           trigger: section,
           start: "top center",
           end: "bottom center",
-          scrub: 0.5,
+          scrub: 1.5,
         },
       });
 
@@ -35,7 +35,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
           trigger: section,
           start: "top center",
           end: "bottom center",
-          scrub: 0.5,
+          scrub: 1.5,
         },
       });
     }, section);
