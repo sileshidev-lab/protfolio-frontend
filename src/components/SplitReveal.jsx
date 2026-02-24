@@ -1,57 +1,138 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Spline from "@splinetool/react-spline";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const transition = { duration: 0.8, ease: [0.22, 1, 0.36, 1] };
+
 const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
   const sectionRef = useRef(null);
+  const topPanelRef = useRef(null);
+  const bottomPanelRef = useRef(null);
+  const [splineLoaded, setSplineLoaded] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
-    if (!section) return;
+    const topPanel = topPanelRef.current;
+    const bottomPanel = bottomPanelRef.current;
+
+    if (!section || !topPanel || !bottomPanel) return;
 
     const ctx = gsap.context(() => {
-      // Simple fade animation without scroll-jacking
-      gsap.fromTo(
-        section.querySelector(".split-content"),
-        { opacity: 0.8, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+      // Panel split animation with scrub - no pinning to avoid scroll-jacking
+      gsap.to(topPanel, {
+        yPercent: -100,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top center",
+          end: "bottom center",
+          scrub: 0.5,
+        },
+      });
+
+      gsap.to(bottomPanel, {
+        yPercent: 100,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top center",
+          end: "bottom center",
+          scrub: 0.5,
+        },
+      });
     }, section);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <div ref={sectionRef} className="relative h-screen bg-white overflow-hidden">
-      <div className="split-content absolute inset-0 flex items-center justify-center">
-        <div className="text-center px-6 max-w-4xl">
-          <p className="text-gray-500 text-xs tracking-widest uppercase mb-4">
-            {topContent.subtitle} · {bottomContent.subtitle}
-          </p>
-          <h2 className="text-black text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            {topContent.title} + {bottomContent.title}
-          </h2>
-          {middleContent && (
-            <>
-              <h3 className="text-black text-2xl sm:text-3xl font-bold mt-6 mb-3">
+    <div ref={sectionRef} className="relative h-[200vh] bg-white">
+      {/* Sticky container for scroll effect */}
+      <div className="sticky top-0 h-screen w-full overflow-hidden">
+        {/* Spline 3D Background - Fixed behind content */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: splineLoaded ? 1 : 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 z-0"
+        >
+          <Spline
+            scene="https://prod.spline.design/Jb6rPXssj6abNfmi/scene.splinecode"
+            onLoad={() => setSplineLoaded(true)}
+            className="w-full h-full"
+          />
+        </motion.div>
+
+        {/* Middle Content - Revealed as panels split */}
+        {middleContent && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ ...transition, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="absolute inset-0 z-10 flex items-center justify-center"
+          >
+            <div className="text-center px-6 max-w-4xl bg-white/90 backdrop-blur-sm rounded-3xl p-12 shadow-2xl">
+              <p className="text-gray-500 text-xs tracking-widest uppercase mb-4">
+                {topContent.subtitle} · {bottomContent.subtitle}
+              </p>
+              <h2 className="text-black text-3xl sm:text-4xl md:text-6xl font-bold mb-4">
+                {topContent.title} + {bottomContent.title}
+              </h2>
+              <h3 className="text-gray-900 text-2xl sm:text-3xl font-bold mt-6 mb-3">
                 {middleContent.title}
               </h3>
               <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto">
                 {middleContent.description}
               </p>
-            </>
-          )}
+            </div>
+          </motion.div>
+        )}
+
+        {/* Top Panel - Slides up on scroll */}
+        <div
+          ref={topPanelRef}
+          className="absolute top-0 left-0 right-0 h-1/2 bg-white z-20 flex items-end justify-center pb-12 will-change-transform"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ ...transition, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-center px-4 sm:px-6 max-w-3xl"
+          >
+            <p className="text-gray-500 text-xs sm:text-sm tracking-widest uppercase mb-2 sm:mb-3">
+              {topContent.subtitle}
+            </p>
+            <h2 className="text-black text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold">
+              {topContent.title}
+            </h2>
+          </motion.div>
+        </div>
+
+        {/* Bottom Panel - Slides down on scroll */}
+        <div
+          ref={bottomPanelRef}
+          className="absolute bottom-0 left-0 right-0 h-1/2 bg-white z-20 flex items-start justify-center pt-12 will-change-transform"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ ...transition, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-center px-4 sm:px-6 max-w-3xl"
+          >
+            <h2 className="text-black text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold">
+              {bottomContent.title}
+            </h2>
+            <p className="text-gray-500 text-xs sm:text-sm tracking-widest uppercase mt-2 sm:mt-3">
+              {bottomContent.subtitle}
+            </p>
+          </motion.div>
         </div>
       </div>
     </div>
