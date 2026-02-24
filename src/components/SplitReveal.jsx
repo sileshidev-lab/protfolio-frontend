@@ -45,14 +45,14 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
   return (
     <div ref={sectionRef} className="relative h-[150vh] bg-white">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Middle Content - Visible on top */}
+        {/* Middle Content - Hidden behind panels, revealed on split */}
         {middleContent && (
-          <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none">
+          <div className="absolute inset-0 z-0 flex items-center justify-center">
             <div className="text-center px-6 max-w-4xl">
-              <h3 className="text-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-lg">
+              <h3 className="text-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
                 {middleContent.title}
               </h3>
-              <p className="text-gray-700 text-lg md:text-xl max-w-2xl mx-auto drop-shadow-md">
+              <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto">
                 {middleContent.description}
               </p>
             </div>
