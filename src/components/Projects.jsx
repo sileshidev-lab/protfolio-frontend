@@ -111,7 +111,7 @@ const Projects = () => {
     <section id="projects" ref={sectionRef} className="relative overflow-hidden bg-[#030711]">
       <div ref={trackRef} className="flex h-screen items-center">
         {/* Intro Panel */}
-        <div className="shrink-0 w-screen h-screen flex flex-col items-center justify-center px-6">
+        <div className="shrink-0 w-screen h-screen flex flex-col items-center justify-center px-6 bg-[#030711]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -139,45 +139,43 @@ const Projects = () => {
           </motion.div>
         </div>
 
-        {/* Project Panels */}
+        {/* Project Pages */}
         {projects.map((project, index) => {
           const Icon = project.icon;
           return (
             <div
               key={project.name}
-              className={`project-card shrink-0 w-[85vw] md:w-[60vw] lg:w-[45vw] h-[80vh] mx-4 md:mx-8 rounded-3xl ${project.color} p-8 md:p-12 flex flex-col justify-between`}
+              className={`project-card shrink-0 w-screen h-screen ${project.color} p-8 md:p-16 lg:p-24 flex flex-col justify-center items-center text-center`}
             >
-              <div>
-                <div className="flex items-start justify-between mb-6">
-                  <div className="p-4 rounded-2xl bg-white/20 backdrop-blur-sm">
-                    <Icon className="w-8 h-8 text-white" />
+              <div className="max-w-4xl">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="p-6 rounded-2xl bg-white/20 backdrop-blur-sm">
+                    <Icon className="w-12 h-12 text-white" />
                   </div>
-                  <span className="text-white/60 text-sm font-medium">
-                    0{index + 1}
-                  </span>
                 </div>
-                <h3 className="text-white text-2xl md:text-3xl font-bold mb-4">
+                <span className="text-white/50 text-sm font-medium tracking-widest">
+                  {String(index + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
+                </span>
+                <h3 className="text-white text-3xl md:text-4xl lg:text-6xl font-bold mt-4 mb-6">
                   {project.name}
                 </h3>
-                <p className="text-white/80 text-base md:text-lg leading-relaxed mb-6">
+                <p className="text-white/80 text-lg md:text-xl lg:text-2xl leading-relaxed mb-8 max-w-3xl mx-auto">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap justify-center gap-3 mb-8">
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-3 py-1 text-sm rounded-full bg-white/20 text-white backdrop-blur-sm"
+                      className="px-4 py-2 text-sm md:text-base rounded-full bg-white/20 text-white backdrop-blur-sm"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
-              </div>
-              <div>
-                <ul className="flex flex-wrap gap-4 text-sm text-white/70 mb-8">
+                <ul className="flex flex-wrap justify-center gap-6 text-sm md:text-base text-white/70 mb-10">
                   {project.features.map((f) => (
                     <li key={f} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                      <span className="w-2 h-2 rounded-full bg-white" />
                       {f}
                     </li>
                   ))}
@@ -186,9 +184,9 @@ const Projects = () => {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-white/90 transition-colors"
+                  className="inline-flex items-center gap-2 bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold hover:bg-white/90 transition-colors text-lg"
                 >
-                  View Project <ExternalLink className="w-4 h-4" />
+                  View Project <ExternalLink className="w-5 h-5" />
                 </a>
               </div>
             </div>
