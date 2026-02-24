@@ -21,21 +21,23 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: "+=120%",
-          scrub: true,
+          end: "+=150%",
+          scrub: 0.5,
           pin: true,
           anticipatePin: 1,
+          fastScrollEnd: true,
+          preventOverlaps: true,
         },
       });
 
       splitTl.to(topPanel, {
         y: "-100%",
-        ease: "power2.inOut",
+        ease: "none",
       }, 0);
 
       splitTl.to(bottomPanel, {
         y: "100%",
-        ease: "power2.inOut",
+        ease: "none",
       }, 0);
     }, section);
 
