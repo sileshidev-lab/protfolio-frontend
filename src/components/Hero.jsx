@@ -116,23 +116,6 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-
-        <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5 }}
-        >
-          <motion.a
-            href="#about"
-            className="flex flex-col items-center text-black/50 hover:text-black transition-colors"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <span className="text-xs uppercase tracking-widest mb-2">Scroll</span>
-            <ArrowDown size={20} />
-          </motion.a>
-        </motion.div>
       </motion.div>
     </section>
   );
