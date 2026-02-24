@@ -107,10 +107,6 @@ const Projects = () => {
             <h2 className="text-black text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
               Projects
             </h2>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Here are some of the key projects I&apos;ve been working on, focused on
-              bringing AI-powered solutions to education in Ethiopia.
-            </p>
           </div>
         </div>
 
@@ -122,16 +118,13 @@ const Projects = () => {
               className="project-card shrink-0 w-screen h-screen bg-transparent p-8 md:p-16 lg:p-24 flex flex-col justify-center items-center text-center"
             >
               <div className="max-w-4xl">
-                <span className="text-gray-500 text-sm font-medium tracking-widest">
-                  {String(index + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
-                </span>
-                <h3 className="text-black text-3xl md:text-4xl lg:text-6xl font-bold mt-4 mb-6">
+                <h3 className="text-black text-3xl md:text-4xl lg:text-6xl font-bold mb-6">
                   {project.name}
                 </h3>
                 <p className="text-gray-600 text-lg md:text-xl lg:text-2xl leading-relaxed mb-8 max-w-3xl mx-auto">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap justify-center gap-3 mb-8">
+                <div className="flex flex-wrap justify-center gap-3 mb-10">
                   {project.tech.map((t) => (
                     <span
                       key={t}
@@ -141,15 +134,8 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                <ul className="flex flex-wrap justify-center gap-6 text-sm md:text-base text-gray-500 mb-10">
-                  {project.features.map((f) => (
-                    <li key={f}>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
                 <a
-                  href={project.link}
+                  href="https://github.com/sileshidev-lab"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-gray-900 text-lg"
