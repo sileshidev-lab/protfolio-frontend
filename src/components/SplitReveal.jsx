@@ -8,9 +8,6 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
   const sectionRef = useRef(null);
   const topPanelRef = useRef(null);
   const bottomPanelRef = useRef(null);
-  const topTextRef = useRef(null);
-  const bottomTextRef = useRef(null);
-  const middleRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -20,8 +17,6 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
     if (!section || !topPanel || !bottomPanel) return;
 
     const ctx = gsap.context(() => {
-      gsap.set(middleRef.current, { opacity: 0, scale: 0.8 });
-
       const splitTl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -42,55 +37,6 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
         y: "100%",
         ease: "power2.inOut",
       }, 0);
-
-      if (topTextRef.current) {
-        gsap.fromTo(topTextRef.current,
-          { opacity: 1, y: 0 },
-          {
-            opacity: 0,
-            y: -30,
-            scrollTrigger: {
-              trigger: section,
-              start: "top top",
-              end: "+=75%",
-              scrub: true,
-            },
-          }
-        );
-      }
-
-      if (bottomTextRef.current) {
-        gsap.fromTo(bottomTextRef.current,
-          { opacity: 1, y: 0 },
-          {
-            opacity: 0,
-            y: 30,
-            scrollTrigger: {
-              trigger: section,
-              start: "top top",
-              end: "+=75%",
-              scrub: true,
-            },
-          }
-        );
-      }
-
-      if (middleRef.current) {
-        gsap.fromTo(middleRef.current,
-          { opacity: 0, scale: 0.8 },
-          {
-            opacity: 1,
-            scale: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: section,
-              start: "+=30%",
-              end: "+=60%",
-              scrub: 0.5,
-            },
-          }
-        );
-      }
     }, section);
 
     return () => ctx.revert();
@@ -99,8 +45,9 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
   return (
     <div ref={sectionRef} className="relative h-[150vh] bg-white">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
+        {/* Middle Content - Always Visible */}
         {middleContent && (
-          <div ref={middleRef} className="absolute inset-0 z-5 flex items-center justify-center pointer-events-none">
+          <div className="absolute inset-0 z-0 flex items-center justify-center">
             <div className="text-center px-6 max-w-4xl">
               <h3 className="text-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
                 {middleContent.title}
@@ -112,13 +59,13 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
           </div>
         )}
 
+        {/* Top Panel */}
         <div
           ref={topPanelRef}
-          className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-gray-200 via-gray-300 to-gray-400 z-10 flex items-end justify-center pb-8"
-          style={{ willChange: "transform" }}
+          className="absolute top-0 left-0 right-0 h-1/2 bg-white border-b border-gray-300 z-10 flex items-end justify-center pb-8"
         >
-          <div ref={topTextRef} className="text-center px-4 sm:px-6 max-w-3xl">
-            <p className="text-gray-600 text-xs sm:text-sm tracking-widest uppercase mb-2 sm:mb-3">
+          <div className="text-center px-4 sm:px-6 max-w-3xl">
+            <p className="text-gray-500 text-xs sm:text-sm tracking-widest uppercase mb-2 sm:mb-3">
               {topContent.subtitle}
             </p>
             <h2 className="text-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold">
@@ -127,16 +74,16 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
           </div>
         </div>
 
+        {/* Bottom Panel */}
         <div
           ref={bottomPanelRef}
-          className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-gray-200 via-gray-300 to-gray-400 z-20 flex items-start justify-center pt-8"
-          style={{ willChange: "transform" }}
+          className="absolute bottom-0 left-0 right-0 h-1/2 bg-white border-t border-gray-300 z-20 flex items-start justify-center pt-8"
         >
-          <div ref={bottomTextRef} className="text-center px-4 sm:px-6 max-w-3xl">
+          <div className="text-center px-4 sm:px-6 max-w-3xl">
             <h2 className="text-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold">
               {bottomContent.title}
             </h2>
-            <p className="text-gray-600 text-xs sm:text-sm tracking-widest uppercase mt-2 sm:mt-3">
+            <p className="text-gray-500 text-xs sm:text-sm tracking-widest uppercase mt-2 sm:mt-3">
               {bottomContent.subtitle}
             </p>
           </div>
