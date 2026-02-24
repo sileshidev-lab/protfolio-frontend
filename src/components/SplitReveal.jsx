@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Spline from "@splinetool/react-spline";
+import NeuralNetwork from "./NeuralNetwork";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +14,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
   const topPanelRef = useRef(null);
   const bottomPanelRef = useRef(null);
   const [splineLoaded, setSplineLoaded] = useState(false);
+  const [splineError, setSplineError] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -22,7 +24,6 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
     if (!section || !topPanel || !bottomPanel) return;
 
     const ctx = gsap.context(() => {
-      // Panel split animation with scrub - no pinning to avoid scroll-jacking
       gsap.to(topPanel, {
         yPercent: -100,
         ease: "none",
@@ -51,23 +52,32 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
 
   return (
     <div ref={sectionRef} className="relative h-[200vh] bg-white">
-      {/* Sticky container for scroll effect */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Spline 3D Background - Fixed behind content */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: splineLoaded ? 1 : 0 }}
-          transition={{ duration: 1 }}
-          className="absolute inset-0 z-0"
-        >
-          <Spline
-            scene="https://prod.spline.design/Jb6rPXssj6abNfmi/scene.splinecode"
-            onLoad={() => setSplineLoaded(true)}
-            className="w-full h-full"
-          />
-        </motion.div>
+        {/* Background - Spline 3D or NeuralNetwork fallback */}
+        <div className="absolute inset-0 z-0">
+          {!splineError ? (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: splineLoaded ? 1 : 0 }}
+              transition={{ duration: 1 }}
+              className="w-full h-full"
+            >
+              <Spline
+                scene="https://prod.spline.design/Jb6rPXssj6abNfmi/scene.splinecode"
+                onLoad={() => setSplineLoaded(true)}
+                onError={() => setSplineError(true)}
+                className="w-full h-full"
+              />
+            </motion.div>
+          ) : null}
+          
+          {/* Fallback NeuralNetwork - always visible behind or when Spline fails */}
+          <div className={`absolute inset-0 transition-opacity duration-500 ${splineLoaded && !splineError ? 'opacity-0' : 'opacity-100'}`}>
+            <NeuralNetwork />
+          </div>
+        </div>
 
-        {/* Middle Content - Revealed as panels split */}
+        {/* Middle Content */}
         {middleContent && (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -76,7 +86,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
             viewport={{ once: true }}
             className="absolute inset-0 z-10 flex items-center justify-center"
           >
-            <div className="text-center px-6 max-w-4xl bg-white/90 backdrop-blur-sm rounded-3xl p-12 shadow-2xl">
+            <div className="text-center px-6 max-w-4xl">
               <p className="text-gray-500 text-xs tracking-widest uppercase mb-4">
                 {topContent.subtitle} · {bottomContent.subtitle}
               </p>
@@ -96,7 +106,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
         {/* Top Panel - Slides up on scroll */}
         <div
           ref={topPanelRef}
-          className="absolute top-0 left-0 right-0 h-1/2 bg-white z-20 flex items-end justify-center pb-12 will-change-transform"
+          className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white via-white/95 to-transparent z-20 flex items-end justify-center pb-12 will-change-transform"
         >
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -114,10 +124,10 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
           </motion.div>
         </div>
 
-        {/* Bottom Panel - Slides down on scroll */}
+        {/* Bottom Panel */}
         <div
           ref={bottomPanelRef}
-          className="absolute bottom-0 left-0 right-0 h-1/2 bg-white z-20 flex items-start justify-center pt-12 will-change-transform"
+          className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-white via-white/95 to-transparent z-20 flex items-start justify-center pt-12 will-change-transform"
         >
           <motion.div
             initial={{ opacity: 0, y: -30 }}
