@@ -1,29 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Twitter, Mail } from "lucide-react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { motion } from "framer-motion";
+import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 
 const transition = { duration: 0.8, ease: [0.22, 1, 0.36, 1] };
 
 const Hero = () => {
   const heroRef = useRef(null);
-  const [splineError, setSplineError] = useState(false);
-
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-
-  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-
-  useEffect(() => {
-    return () => {};
-  }, []);
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/sileshidev-lab", label: "GitHub" },
@@ -32,21 +14,9 @@ const Hero = () => {
     { icon: Mail, href: "mailto:sileshidev@gmail.com", label: "Email" },
   ];
 
-  const name = "Sileshi Abrham";
-
   return (
-    <section id="home" ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden bg-transparent">
-      <motion.div
-        className="absolute inset-0 z-0"
-        style={{ y: heroY, scale: heroScale, opacity: heroOpacity }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white z-10" />
-      </motion.div>
-
-      <motion.div
-        style={{ opacity: heroOpacity }}
-        className="relative z-20 max-w-7xl mx-auto px-6 py-32 w-full"
-      >
+    <section id="home" ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden bg-white">
+      <div className="max-w-7xl mx-auto px-6 py-32 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
             <motion.p
@@ -116,7 +86,7 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
