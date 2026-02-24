@@ -97,14 +97,14 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
 
         <div
           ref={topPanelRef}
-          className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-blue-600/90 via-blue-700/80 to-blue-800/70 z-10 flex items-end justify-center pb-8"
+          className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-blue-600/50 via-blue-700/40 to-transparent z-10 flex items-end justify-center pb-8"
           style={{ willChange: "transform" }}
         >
           <div ref={topTextRef} className="text-center px-4 sm:px-6 max-w-3xl">
-            <p className="text-white/60 text-xs sm:text-sm tracking-widest uppercase mb-2 sm:mb-3">
+            <p className="text-white/50 text-xs sm:text-sm tracking-widest uppercase mb-2 sm:mb-3">
               {topContent.subtitle}
             </p>
-            <h2 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold">
+            <h2 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold drop-shadow-lg">
               {topContent.title}
             </h2>
           </div>
@@ -112,14 +112,14 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
 
         <div
           ref={bottomPanelRef}
-          className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-purple-600/90 via-purple-700/80 to-purple-800/70 z-20 flex items-start justify-center pt-8"
+          className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-purple-600/50 via-purple-700/40 to-transparent z-20 flex items-start justify-center pt-8"
           style={{ willChange: "transform" }}
         >
           <div ref={bottomTextRef} className="text-center px-4 sm:px-6 max-w-3xl">
-            <h2 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold">
+            <h2 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold drop-shadow-lg">
               {bottomContent.title}
             </h2>
-            <p className="text-white/60 text-xs sm:text-sm tracking-widest uppercase mt-2 sm:mt-3">
+            <p className="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2 sm:mt-3">
               {bottomContent.subtitle}
             </p>
           </div>
