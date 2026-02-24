@@ -15,10 +15,10 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden bg-white">
-      <div className="max-w-7xl mx-auto px-6 py-32 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1">
+    <section id="home" ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden bg-transparent">
+      <div className="max-w-7xl mx-auto px-6 py-32 w-full bg-transparent">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-transparent">
+          <div className="order-2 lg:order-1 bg-transparent">
             <motion.p
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}

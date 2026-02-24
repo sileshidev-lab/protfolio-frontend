@@ -46,7 +46,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" ref={sectionRef} className="py-20 px-6 bg-white">
+    <section id="about" ref={sectionRef} className="py-20 px-6 bg-transparent">
       <div className="max-w-5xl mx-auto">
         {/* Header - Material Display Large */}
         <motion.div

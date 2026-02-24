@@ -96,10 +96,10 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" ref={sectionRef} className="relative overflow-hidden bg-white">
+    <section id="projects" ref={sectionRef} className="relative overflow-hidden bg-transparent">
       <div ref={trackRef} className="flex h-screen items-center">
         {/* Intro Panel */}
-        <div className="shrink-0 w-screen h-screen flex flex-col items-center justify-center px-6 bg-white">
+        <div className="shrink-0 w-screen h-screen flex flex-col items-center justify-center px-6 bg-transparent">
           <div className="text-center max-w-2xl">
             <p className="text-gray-900 font-semibold text-sm tracking-widest uppercase mb-4">
               Featured Work
@@ -119,7 +119,7 @@ const Projects = () => {
           return (
             <div
               key={project.name}
-              className="project-card shrink-0 w-screen h-screen bg-white p-8 md:p-16 lg:p-24 flex flex-col justify-center items-center text-center"
+              className="project-card shrink-0 w-screen h-screen bg-transparent p-8 md:p-16 lg:p-24 flex flex-col justify-center items-center text-center"
             >
               <div className="max-w-4xl">
                 <span className="text-gray-500 text-sm font-medium tracking-widest">
