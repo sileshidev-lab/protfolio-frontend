@@ -5,6 +5,8 @@ const NeuralNetwork = () => {
   const mousePos = useRef({ x: 0, y: 0 });
   const nodesRef = useRef([]);
   const animationIdRef = useRef(null);
+  const isScrollingRef = useRef(false);
+  const scrollTimeoutRef = useRef(null);
   const attractPointRef = useRef(null);
   const isAttractingRef = useRef(false);
   const clickPointRef = useRef(null);
@@ -15,6 +17,18 @@ const NeuralNetwork = () => {
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
+    
+    // Detect scroll to pause animation
+    const handleScroll = () => {
+      isScrollingRef.current = true;
+      clearTimeout(scrollTimeoutRef.current);
+      scrollTimeoutRef.current = setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 150);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -86,83 +100,88 @@ const NeuralNetwork = () => {
     };
 
     const updateNode = (node) => {
-      if (isAttractingRef.current && attractPointRef.current) {
-        const dx = attractPointRef.current.x - node.x;
-        const dy = attractPointRef.current.y - node.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        const attractForce = 0.08;
-        node.vx = (dx / distance) * attractForce * 3;
-        node.vy = (dy / distance) * attractForce * 3;
-      } else {
-        node.angle += (Math.random() - 0.5) * 0.3;
-        const burstChance = Math.random();
-        let speedMultiplier = 1;
-        if (burstChance > 0.95) speedMultiplier = 3;
-        else if (burstChance > 0.85) speedMultiplier = 0.3;
-        node.vx = Math.cos(node.angle) * node.speed * speedMultiplier;
-        node.vy = Math.sin(node.angle) * node.speed * speedMultiplier;
-      }
-
-      const dx = mousePos.current.x - node.x;
-      const dy = mousePos.current.y - node.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      const repelRadius = 150;
-
-      if (distance < repelRadius && !isAttractingRef.current) {
-        const repelAngle = Math.atan2(dy, dx);
-        const force = (repelRadius - distance) / repelRadius;
-        node.vx -= Math.cos(repelAngle) * force * 5;
-        node.vy -= Math.sin(repelAngle) * force * 5;
-      }
-
-      if (clickPointRef.current) {
-        const timeSinceClick = Date.now() - clickTimeRef.current;
-        if (timeSinceClick < 500) {
-          const cdx = clickPointRef.current.x - node.x;
-          const cdy = clickPointRef.current.y - node.y;
-          const clickDistance = Math.sqrt(cdx * cdx + cdy * cdy);
-          const clickRadius = 300;
-
-          if (clickDistance < clickRadius) {
-            const clickAngle = Math.atan2(cdy, cdx);
-            const clickForce = (clickRadius - clickDistance) / clickRadius;
-            node.vx -= Math.cos(clickAngle) * clickForce * 8;
-            node.vy -= Math.sin(clickAngle) * clickForce * 8;
-          }
+      if (!isScrollingRef.current) {
+        if (isAttractingRef.current && attractPointRef.current) {
+          const dx = attractPointRef.current.x - node.x;
+          const dy = attractPointRef.current.y - node.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const attractForce = 0.08;
+          node.vx = (dx / distance) * attractForce * 3;
+          node.vy = (dy / distance) * attractForce * 3;
         } else {
-          clickPointRef.current = null;
+          node.angle += (Math.random() - 0.5) * 0.3;
+          const burstChance = Math.random();
+          let speedMultiplier = 1;
+          if (burstChance > 0.95) speedMultiplier = 3;
+          else if (burstChance > 0.85) speedMultiplier = 0.3;
+          node.vx = Math.cos(node.angle) * node.speed * speedMultiplier;
+          node.vy = Math.sin(node.angle) * node.speed * speedMultiplier;
         }
-      }
 
-      node.vx *= 0.92;
-      node.vy *= 0.92;
+        const dx = mousePos.current.x - node.x;
+        const dy = mousePos.current.y - node.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const repelRadius = 150;
 
-      node.x += node.vx;
-      node.y += node.vy;
+        if (distance < repelRadius && !isAttractingRef.current) {
+          const repelAngle = Math.atan2(dy, dx);
+          const force = (repelRadius - distance) / repelRadius;
+          node.vx -= Math.cos(repelAngle) * force * 5;
+          node.vy -= Math.sin(repelAngle) * force * 5;
+        }
 
-      if (node.x < 0) {
-        node.x = canvas.width;
-        node.vx *= -0.5;
-      }
-      if (node.x > canvas.width) {
-        node.x = 0;
-        node.vx *= -0.5;
-      }
-      if (node.y < 0) {
-        node.y = canvas.height;
-        node.vy *= -0.5;
-      }
-      if (node.y > canvas.height) {
-        node.y = 0;
-        node.vy *= -0.5;
+        if (clickPointRef.current) {
+          const timeSinceClick = Date.now() - clickTimeRef.current;
+          if (timeSinceClick < 500) {
+            const cdx = clickPointRef.current.x - node.x;
+            const cdy = clickPointRef.current.y - node.y;
+            const clickDistance = Math.sqrt(cdx * cdx + cdy * cdy);
+            const clickRadius = 300;
+
+            if (clickDistance < clickRadius) {
+              const clickAngle = Math.atan2(cdy, cdx);
+              const clickForce = (clickRadius - clickDistance) / clickRadius;
+              node.vx -= Math.cos(clickAngle) * clickForce * 8;
+              node.vy -= Math.sin(clickAngle) * clickForce * 8;
+            }
+          } else {
+            clickPointRef.current = null;
+          }
+        }
+
+        node.vx *= 0.92;
+        node.vy *= 0.92;
+
+        node.x += node.vx;
+        node.y += node.vy;
+
+        if (node.x < 0) {
+          node.x = canvas.width;
+          node.vx *= -0.5;
+        }
+        if (node.x > canvas.width) {
+          node.x = 0;
+          node.vx *= -0.5;
+        }
+        if (node.y < 0) {
+          node.y = canvas.height;
+          node.vy *= -0.5;
+        }
+        if (node.y > canvas.height) {
+          node.y = 0;
+          node.vy *= -0.5;
+        }
       }
     };
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      // Only animate nodes every 2nd frame when scrolling for performance
+      const skipFrame = isScrollingRef.current && animationIdRef.current % 2 === 0;
+
       nodesRef.current.forEach((node) => {
-        updateNode(node);
+        if (!skipFrame) updateNode(node);
         drawNode(node);
       });
 
@@ -203,7 +222,9 @@ const NeuralNetwork = () => {
     return () => {
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
       canvas.removeEventListener("click", handleCanvasClick);
+      clearTimeout(scrollTimeoutRef.current);
       if (animationIdRef.current) {
         cancelAnimationFrame(animationIdRef.current);
       }

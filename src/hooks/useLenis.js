@@ -9,6 +9,18 @@ export const useLenis = () => {
   const lenisRef = useRef(null);
 
   useEffect(() => {
+    // Only enable Lenis on touch devices (mobile/tablet)
+    // Desktop mouse wheels cause flickering with ScrollTrigger pinning
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    
+    if (!isTouchDevice) {
+      // On desktop, use native scroll with GSAP ScrollTrigger
+      ScrollTrigger.defaults({
+        markers: false,
+      });
+      return;
+    }
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
