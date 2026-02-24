@@ -26,20 +26,21 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: "bottom bottom",
-          scrub: 0.8,
-          pin: false,
+          end: "+=150%",
+          scrub: 0.5,
+          pin: true,
+          anticipatePin: 1,
         },
       });
 
       splitTl.to(topPanel, {
         y: "-100%",
-        ease: "none",
+        ease: "power2.inOut",
       }, 0);
 
       splitTl.to(bottomPanel, {
         y: "100%",
-        ease: "none",
+        ease: "power2.inOut",
       }, 0);
 
       if (topTextRef.current) {
@@ -79,7 +80,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="relative h-[200vh] bg-[#030711]">
+    <div ref={sectionRef} className="relative h-[150vh] bg-[#030711]">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {middleContent && (
           <div className="absolute inset-0 z-0 flex items-center justify-center bg-[#030711]">
@@ -96,7 +97,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
 
         <div
           ref={topPanelRef}
-          className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-blue-600 to-blue-800 z-10 flex items-end justify-center pb-8"
+          className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-blue-600/90 via-blue-700/80 to-blue-800/70 z-10 flex items-end justify-center pb-8"
           style={{ willChange: "transform" }}
         >
           <div ref={topTextRef} className="text-center px-4 sm:px-6 max-w-3xl">
@@ -111,7 +112,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
 
         <div
           ref={bottomPanelRef}
-          className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-purple-600 to-purple-800 z-20 flex items-start justify-center pt-8"
+          className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-purple-600/90 via-purple-700/80 to-purple-800/70 z-20 flex items-start justify-center pt-8"
           style={{ willChange: "transform" }}
         >
           <div ref={bottomTextRef} className="text-center px-4 sm:px-6 max-w-3xl">
