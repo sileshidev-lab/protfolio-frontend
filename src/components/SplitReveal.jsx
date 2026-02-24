@@ -21,8 +21,8 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: "+=100%",
-          scrub: 0.8,
+          end: "+=120%",
+          scrub: true,
           pin: true,
           anticipatePin: 1,
         },
