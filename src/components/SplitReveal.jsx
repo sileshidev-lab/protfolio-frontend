@@ -22,8 +22,8 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
         ease: "none",
         scrollTrigger: {
           trigger: section,
-          start: "top center",
-          end: "bottom center",
+          start: "top top",
+          end: "bottom top",
           scrub: 1.5,
         },
       });
@@ -33,8 +33,8 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
         ease: "none",
         scrollTrigger: {
           trigger: section,
-          start: "top center",
-          end: "bottom center",
+          start: "top top",
+          end: "bottom top",
           scrub: 1.5,
         },
       });
