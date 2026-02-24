@@ -10,6 +10,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
   const bottomPanelRef = useRef(null);
   const topTextRef = useRef(null);
   const bottomTextRef = useRef(null);
+  const middleRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -74,6 +75,22 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
           }
         );
       }
+
+      if (middleRef.current) {
+        gsap.fromTo(middleRef.current,
+          { opacity: 0, scale: 0.9 },
+          {
+            opacity: 1,
+            scale: 1,
+            scrollTrigger: {
+              trigger: section,
+              start: "+=25%",
+              end: "+=100%",
+              scrub: true,
+            },
+          }
+        );
+      }
     }, section);
 
     return () => ctx.revert();
@@ -83,7 +100,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
     <div ref={sectionRef} className="relative h-[150vh] bg-[#030711]">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {middleContent && (
-          <div className="absolute inset-0 z-0 flex items-center justify-center bg-[#030711]">
+          <div ref={middleRef} className="absolute inset-0 z-0 flex items-center justify-center bg-[#030711]">
             <div className="text-center px-6 max-w-4xl">
               <h3 className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
                 {middleContent.title}
