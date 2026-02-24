@@ -84,8 +84,8 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
             scale: 1,
             scrollTrigger: {
               trigger: section,
-              start: "+=25%",
-              end: "+=100%",
+              start: "top top",
+              end: "+=60%",
               scrub: true,
             },
           }
