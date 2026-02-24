@@ -10,12 +10,12 @@ export const useLenis = () => {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.5,
+      duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 0.8,
+      wheelMultiplier: 1,
       touchMultiplier: 1.5,
     });
 
@@ -23,11 +23,12 @@ export const useLenis = () => {
 
     lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
 
-    gsap.ticker.lagSmoothing(0);
+    requestAnimationFrame(raf);
 
     return () => {
       lenis.destroy();
