@@ -10,7 +10,6 @@ const transition = { duration: 0.8, ease: [0.22, 1, 0.36, 1] };
 
 const Hero = () => {
   const heroRef = useRef(null);
-  const nameRef = useRef(null);
   const [splineError, setSplineError] = useState(false);
 
   const { scrollYProgress } = useScroll({
@@ -23,26 +22,7 @@ const Hero = () => {
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const chars = nameRef.current?.querySelectorAll(".char");
-      if (chars) {
-        gsap.fromTo(
-          chars,
-          { opacity: 0, y: 100, rotateX: -90 },
-          {
-            opacity: 1,
-            y: 0,
-            rotateX: 0,
-            duration: 1.2,
-            stagger: 0.05,
-            ease: "power4.out",
-            delay: 0.5,
-          }
-        );
-      }
-    }, heroRef);
-
-    return () => ctx.revert();
+    return () => {};
   }, []);
 
   const socialLinks = [
@@ -80,17 +60,9 @@ const Hero = () => {
 
             <h1
               ref={nameRef}
-              className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 perspective-1000"
+              className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
             >
-              {name.split("").map((char, i) => (
-                <span
-                  key={i}
-                  className="char inline-block"
-                  style={{ transformStyle: "preserve-3d" }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                </span>
-              ))}
+              Sileshi Abrham
             </h1>
 
             <motion.p
@@ -142,7 +114,7 @@ const Hero = () => {
               <img
                 src="/photo_2025-12-08_05-13-07.jpg"
                 alt="Sileshi Abrham"
-                className="relative w-64 h-64 sm:w-80 sm:h-80 object-cover rounded-full border-4 border-black/10 shadow-2xl"
+                className="relative w-64 h-64 sm:w-80 sm:h-80 object-cover object-top rounded-full border-4 border-black/10 shadow-2xl"
               />
             </div>
           </motion.div>
