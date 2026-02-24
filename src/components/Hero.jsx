@@ -1,9 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Twitter, Mail } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Spline from "@splinetool/react-spline";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,6 +11,7 @@ const transition = { duration: 0.8, ease: [0.22, 1, 0.36, 1] };
 const Hero = () => {
   const heroRef = useRef(null);
   const nameRef = useRef(null);
+  const [splineError, setSplineError] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -61,10 +61,21 @@ const Hero = () => {
         style={{ y: heroY, scale: heroScale, opacity: heroOpacity }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#030711]/50 to-[#030711] z-10" />
-        <Spline
-          scene="https://prod.spline.design/6Wq1p7hU8l8i5Z2J/scene.splinecode"
-          className="w-full h-full"
-        />
+        
+        {/* Animated Background Fallback */}
+        {splineError ? (
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
+          </div>
+        ) : (
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
+          </div>
+        )}
       </motion.div>
 
       <motion.div
