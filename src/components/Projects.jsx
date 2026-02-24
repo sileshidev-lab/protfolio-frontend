@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ExternalLink, Github, Bot, Languages, BookOpen, LineChart, ArrowRight } from "lucide-react";
+import { ExternalLink, Github, Bot, FileText, Shield, LineChart, ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,23 +24,23 @@ const Projects = () => {
       color: "bg-blue-600",
     },
     {
-      name: "NLP Tools for Amharic",
+      name: "Madda RFQ & Quotation Platform",
       description:
-        "Natural language processing utilities for Amharic text including tokenization, sentiment analysis, and named entity recognition.",
-      tech: ["Python", "Transformers", "PyTorch"],
-      icon: Languages,
+        "A comprehensive procurement platform for managing RFQs (Request for Quotations), vendor submissions, and automated quotation comparisons.",
+      tech: ["React", "Node.js", "PostgreSQL", "Redis"],
+      icon: FileText,
       link: "#",
-      features: ["Custom tokenizer", "BERT-based models", "Open source"],
+      features: ["Multi-vendor RFQ management", "Automated price comparison", "Real-time notifications"],
       color: "bg-purple-600",
     },
     {
-      name: "TVET Course Manager",
+      name: "NISIRCOP Crime Analytics",
       description:
-        "A comprehensive course management system designed specifically for technical and vocational education workflows.",
-      tech: ["Django", "PostgreSQL", "React"],
-      icon: BookOpen,
+        "An intelligent crime analytics and reporting platform featuring pattern detection, hotspot mapping, and predictive crime forecasting.",
+      tech: ["Python", "FastAPI", "MongoDB", "TensorFlow", "Mapbox"],
+      icon: Shield,
       link: "#",
-      features: ["Curriculum mapping", "Assessment tools", "Reporting"],
+      features: ["Crime pattern analysis", "Geospatial hotspot mapping", "Predictive forecasting"],
       color: "bg-emerald-600",
     },
     {
