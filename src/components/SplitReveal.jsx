@@ -45,14 +45,14 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
 
       if (topTextRef.current) {
         gsap.fromTo(topTextRef.current,
-          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0 },
           {
-            opacity: 1,
-            y: 0,
+            opacity: 0,
+            y: -30,
             scrollTrigger: {
               trigger: section,
-              start: "top 80%",
-              end: "top 30%",
+              start: "top top",
+              end: "+=75%",
               scrub: true,
             },
           }
@@ -61,14 +61,14 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
 
       if (bottomTextRef.current) {
         gsap.fromTo(bottomTextRef.current,
-          { opacity: 0, y: -20 },
+          { opacity: 1, y: 0 },
           {
-            opacity: 1,
-            y: 0,
+            opacity: 0,
+            y: 30,
             scrollTrigger: {
               trigger: section,
-              start: "top 80%",
-              end: "top 30%",
+              start: "top top",
+              end: "+=75%",
               scrub: true,
             },
           }
@@ -97,11 +97,11 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
 
         <div
           ref={topPanelRef}
-          className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-blue-600/50 via-blue-700/40 to-transparent z-10 flex items-end justify-center pb-8"
+          className="absolute top-0 left-0 right-0 h-[45vh] bg-gradient-to-b from-blue-600/40 via-blue-700/20 to-transparent z-10 flex items-end justify-center pb-8"
           style={{ willChange: "transform" }}
         >
           <div ref={topTextRef} className="text-center px-4 sm:px-6 max-w-3xl">
-            <p className="text-white/50 text-xs sm:text-sm tracking-widest uppercase mb-2 sm:mb-3">
+            <p className="text-white/40 text-xs sm:text-sm tracking-widest uppercase mb-2 sm:mb-3">
               {topContent.subtitle}
             </p>
             <h2 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold drop-shadow-lg">
@@ -112,14 +112,14 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
 
         <div
           ref={bottomPanelRef}
-          className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-purple-600/50 via-purple-700/40 to-transparent z-20 flex items-start justify-center pt-8"
+          className="absolute bottom-0 left-0 right-0 h-[45vh] bg-gradient-to-t from-purple-600/40 via-purple-700/20 to-transparent z-20 flex items-start justify-center pt-8"
           style={{ willChange: "transform" }}
         >
           <div ref={bottomTextRef} className="text-center px-4 sm:px-6 max-w-3xl">
             <h2 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold drop-shadow-lg">
               {bottomContent.title}
             </h2>
-            <p className="text-white/50 text-xs sm:text-sm tracking-widest uppercase mt-2 sm:mt-3">
+            <p className="text-white/40 text-xs sm:text-sm tracking-widest uppercase mt-2 sm:mt-3">
               {bottomContent.subtitle}
             </p>
           </div>
