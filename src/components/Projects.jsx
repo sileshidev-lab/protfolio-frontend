@@ -108,10 +108,10 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" ref={sectionRef} className="relative overflow-hidden bg-[#030711]">
+    <section id="projects" ref={sectionRef} className="relative overflow-hidden bg-white">
       <div ref={trackRef} className="flex h-screen items-center">
         {/* Intro Panel */}
-        <div className="shrink-0 w-screen h-screen flex flex-col items-center justify-center px-6 bg-[#030711]">
+        <div className="shrink-0 w-screen h-screen flex flex-col items-center justify-center px-6 bg-white">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -119,13 +119,13 @@ const Projects = () => {
             viewport={{ once: true }}
             className="text-center max-w-2xl"
           >
-            <p className="text-blue-400 font-semibold text-sm tracking-widest uppercase mb-4">
+            <p className="text-blue-600 font-semibold text-sm tracking-widest uppercase mb-4">
               Featured Work
             </p>
-            <h2 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+            <h2 className="text-black text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
               Projects
             </h2>
-            <p className="text-gray-400 text-lg leading-relaxed">
+            <p className="text-gray-600 text-lg leading-relaxed">
               Here are some of the key projects I&apos;ve been working on, focused on
               bringing AI-powered solutions to education in Ethiopia.
             </p>
@@ -134,7 +134,7 @@ const Projects = () => {
               transition={{ duration: 1.5, repeat: Infinity }}
               className="mt-8"
             >
-              <ArrowRight className="w-8 h-8 text-blue-400 mx-auto" />
+              <ArrowRight className="w-8 h-8 text-blue-600 mx-auto" />
             </motion.div>
           </motion.div>
         </div>

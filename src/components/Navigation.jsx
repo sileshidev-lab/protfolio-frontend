@@ -37,7 +37,7 @@ const Navigation = () => {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-[#030711]/80 backdrop-blur-lg border-b border-white/10"
+            ? "bg-white/80 backdrop-blur-lg border-b border-black/10"
             : "bg-transparent"
         }`}
       >
@@ -48,7 +48,7 @@ const Navigation = () => {
               e.preventDefault();
               scrollToSection("home");
             }}
-            className="text-white text-xl font-bold tracking-tight"
+            className="text-black text-xl font-bold tracking-tight"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -65,7 +65,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection(link.id);
                 }}
-                className="text-gray-400 hover:text-white text-sm font-medium transition-colors"
+                className="text-gray-600 hover:text-black text-sm font-medium transition-colors"
                 whileHover={{ y: -2 }}
               >
                 {link.label}
@@ -75,7 +75,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden text-white p-2"
+            className="md:hidden text-black p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.9 }}
           >
@@ -92,7 +92,7 @@ const Navigation = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#030711]/95 backdrop-blur-lg md:hidden pt-20"
+            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-lg md:hidden pt-20"
           >
             <div className="flex flex-col items-center gap-8 p-8">
               {navLinks.map((link, index) => (
@@ -106,7 +106,7 @@ const Navigation = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-white text-2xl font-bold"
+                  className="text-black text-2xl font-bold"
                 >
                   {link.label}
                 </motion.a>

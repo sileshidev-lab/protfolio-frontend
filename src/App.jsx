@@ -1,4 +1,5 @@
 import { useLenis } from "./hooks/useLenis";
+import NeuralNetwork from "./components/NeuralNetwork";
 import Hero from "./components/Hero";
 import SplitReveal from "./components/SplitReveal";
 import About from "./components/About";
@@ -10,7 +11,8 @@ function App() {
   useLenis();
 
   return (
-    <div className="bg-[#030711] min-h-screen">
+    <div className="bg-white min-h-screen">
+      <NeuralNetwork />
       <Navigation />
       <main>
         <Hero />

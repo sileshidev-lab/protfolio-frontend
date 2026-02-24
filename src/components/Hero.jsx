@@ -55,27 +55,12 @@ const Hero = () => {
   const name = "Sileshi Abrham";
 
   return (
-    <section id="home" ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden bg-[#030711]">
+    <section id="home" ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden bg-transparent">
       <motion.div
         className="absolute inset-0 z-0"
         style={{ y: heroY, scale: heroScale, opacity: heroOpacity }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#030711]/50 to-[#030711] z-10" />
-        
-        {/* Animated Background Fallback */}
-        {splineError ? (
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
-          </div>
-        ) : (
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
-          </div>
-        )}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white z-10" />
       </motion.div>
 
       <motion.div
@@ -88,14 +73,14 @@ const Hero = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ ...transition, delay: 0.2 }}
-              className="text-blue-400 font-semibold text-sm tracking-widest uppercase mb-4"
+              className="text-blue-600 font-semibold text-sm tracking-widest uppercase mb-4"
             >
               Full-Stack Developer
             </motion.p>
 
             <h1
               ref={nameRef}
-              className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 perspective-1000"
+              className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 perspective-1000"
             >
               {name.split("").map((char, i) => (
                 <span
@@ -112,7 +97,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...transition, delay: 0.8 }}
-              className="text-gray-400 text-lg sm:text-xl max-w-lg leading-relaxed mb-8"
+              className="text-gray-600 text-lg sm:text-xl max-w-lg leading-relaxed mb-8"
             >
               Building modern web applications with clean code and scalable architecture.
               Specialized in React, Node.js, and cloud technologies.
@@ -132,7 +117,7 @@ const Hero = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-blue-500 transition-colors"
+                    className="w-12 h-12 rounded-full bg-black/10 backdrop-blur-sm flex items-center justify-center text-black hover:bg-blue-500 hover:text-white transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, y: 20 }}
@@ -153,11 +138,11 @@ const Hero = () => {
             transition={{ ...transition, delay: 0.4 }}
           >
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-2xl opacity-50" />
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-2xl opacity-50" />
               <img
                 src="/photo_2025-12-08_05-13-07.jpg"
                 alt="Sileshi Abrham"
-                className="relative w-64 h-64 sm:w-80 sm:h-80 object-cover rounded-full border-4 border-white/10 shadow-2xl"
+                className="relative w-64 h-64 sm:w-80 sm:h-80 object-cover rounded-full border-4 border-black/10 shadow-2xl"
               />
             </div>
           </motion.div>
@@ -171,7 +156,7 @@ const Hero = () => {
         >
           <motion.a
             href="#about"
-            className="flex flex-col items-center text-white/50 hover:text-white transition-colors"
+            className="flex flex-col items-center text-black/50 hover:text-black transition-colors"
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
