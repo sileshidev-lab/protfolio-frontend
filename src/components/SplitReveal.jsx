@@ -114,7 +114,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
 
         <div
           ref={topPanelRef}
-          className="absolute top-0 left-0 right-0 h-[45vh] bg-gradient-to-b from-blue-600/40 via-blue-700/20 to-transparent z-10 flex items-end justify-center pb-8"
+          className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-blue-600/60 via-blue-700/40 to-blue-800/20 z-10 flex items-end justify-center pb-8"
           style={{ willChange: "transform" }}
         >
           <div ref={topTextRef} className="text-center px-4 sm:px-6 max-w-3xl">
@@ -129,7 +129,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
 
         <div
           ref={bottomPanelRef}
-          className="absolute bottom-0 left-0 right-0 h-[45vh] bg-gradient-to-t from-purple-600/40 via-purple-700/20 to-transparent z-20 flex items-start justify-center pt-8"
+          className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-purple-600/60 via-purple-700/40 to-purple-800/20 z-20 flex items-start justify-center pt-8"
           style={{ willChange: "transform" }}
         >
           <div ref={bottomTextRef} className="text-center px-4 sm:px-6 max-w-3xl">
