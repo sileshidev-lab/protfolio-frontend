@@ -62,7 +62,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
         {/* Top Panel */}
         <div
           ref={topPanelRef}
-          className="absolute top-0 left-0 right-0 h-1/2 bg-white border-b border-gray-300 z-10 flex items-end justify-center pb-8"
+          className="absolute top-0 left-0 right-0 h-1/2 bg-white z-10 flex items-end justify-center pb-8"
         >
           <div className="text-center px-4 sm:px-6 max-w-3xl">
             <p className="text-gray-500 text-xs sm:text-sm tracking-widest uppercase mb-2 sm:mb-3">
@@ -77,7 +77,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
         {/* Bottom Panel */}
         <div
           ref={bottomPanelRef}
-          className="absolute bottom-0 left-0 right-0 h-1/2 bg-white border-t border-gray-300 z-20 flex items-start justify-center pt-8"
+          className="absolute bottom-0 left-0 right-0 h-1/2 bg-white z-20 flex items-start justify-center pt-8"
         >
           <div className="text-center px-4 sm:px-6 max-w-3xl">
             <h2 className="text-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold">
