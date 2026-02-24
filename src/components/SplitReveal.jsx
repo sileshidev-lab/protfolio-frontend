@@ -78,15 +78,17 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
 
       if (middleRef.current) {
         gsap.fromTo(middleRef.current,
-          { opacity: 0, scale: 0.9 },
+          { opacity: 0, scale: 0.8 },
           {
             opacity: 1,
             scale: 1,
+            duration: 1,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: section,
-              start: "top top",
-              end: "+=60%",
-              scrub: true,
+              start: "+=30%",
+              end: "+=50%",
+              scrub: 1,
             },
           }
         );
