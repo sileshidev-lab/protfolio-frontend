@@ -101,7 +101,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
     <div ref={sectionRef} className="relative h-[150vh] bg-[#030711]">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {middleContent && (
-          <div ref={middleRef} className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none">
+          <div ref={middleRef} className="absolute inset-0 z-5 flex items-center justify-center pointer-events-none">
             <div className="text-center px-6 max-w-4xl">
               <h3 className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
                 {middleContent.title}
