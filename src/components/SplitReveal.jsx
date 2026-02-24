@@ -44,7 +44,7 @@ const SplitReveal = ({ topContent, bottomContent, middleContent }) => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="relative h-[200vh]">
+    <div ref={sectionRef} className="relative h-[150vh]">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {/* Middle Content - Hidden behind panels initially */}
         {middleContent && (
