@@ -82,11 +82,11 @@ const About = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <p className="text-blue-600 font-semibold text-sm tracking-widest uppercase mb-4">
+          <p className="text-gray-900 font-semibold text-sm tracking-widest uppercase mb-4">
             About Me
           </p>
           <h2 className="text-black text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            Building Digital <span className="text-blue-600">Experiences</span>
+            Building Digital <span className="text-gray-700">Experiences</span>
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed">
             I&apos;m a passionate full-stack developer based in Addis Ababa, Ethiopia. 
@@ -103,36 +103,36 @@ const About = () => {
           className="mb-16"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gray-50 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 hover:border-blue-500/50 transition-colors">
+            <div className="bg-gray-50 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 hover:border-gray-400 transition-colors">
               <h3 className="text-black text-xl font-bold mb-4">Academic Education</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-blue-500 mt-2 shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-gray-900 mt-2 shrink-0" />
                   INSA 4th Batch Cyber Talent Graduate
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-blue-500 mt-2 shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-gray-900 mt-2 shrink-0" />
                   Currently learning Diploma in IT
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-blue-500 mt-2 shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-gray-900 mt-2 shrink-0" />
                   Scholarship recipient for Micro English Access Program
                 </li>
               </ul>
             </div>
-            <div className="bg-gray-50 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 hover:border-blue-500/50 transition-colors">
+            <div className="bg-gray-50 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 hover:border-gray-400 transition-colors">
               <h3 className="text-black text-xl font-bold mb-4">Professional Certifications</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-purple-500 mt-2 shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-gray-500 mt-2 shrink-0" />
                   DevOps Foundations: Microservices
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-purple-500 mt-2 shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-gray-500 mt-2 shrink-0" />
                   Programming Foundations: Design Patterns
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-purple-500 mt-2 shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-gray-500 mt-2 shrink-0" />
                   Programming Foundations: Fundamentals
                 </li>
               </ul>
@@ -146,11 +146,11 @@ const About = () => {
             return (
               <div
                 key={skill.title}
-                className="skill-card group bg-gray-50 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 hover:border-blue-500/50 hover:bg-white transition-all duration-300"
+                className="skill-card group bg-gray-50 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 hover:border-gray-400 hover:bg-white transition-all duration-300"
               >
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
-                    <Icon className="text-blue-600" size={24} />
+                  <div className="w-12 h-12 rounded-xl bg-gray-200 flex items-center justify-center group-hover:bg-gray-300 transition-colors">
+                    <Icon className="text-gray-700" size={24} />
                   </div>
                   <h4 className="text-black text-lg font-bold">{skill.title}</h4>
                 </div>
@@ -158,7 +158,7 @@ const About = () => {
                   {skill.items.map((item) => (
                     <span
                       key={item}
-                      className="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded-full group-hover:bg-blue-500/20 group-hover:text-blue-700 transition-colors"
+                      className="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded-full group-hover:bg-gray-300 group-hover:text-gray-900 transition-colors"
                     >
                       {item}
                     </span>

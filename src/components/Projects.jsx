@@ -119,7 +119,7 @@ const Projects = () => {
             viewport={{ once: true }}
             className="text-center max-w-2xl"
           >
-            <p className="text-blue-600 font-semibold text-sm tracking-widest uppercase mb-4">
+            <p className="text-gray-900 font-semibold text-sm tracking-widest uppercase mb-4">
               Featured Work
             </p>
             <h2 className="text-black text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
@@ -134,7 +134,7 @@ const Projects = () => {
               transition={{ duration: 1.5, repeat: Infinity }}
               className="mt-8"
             >
-              <ArrowRight className="w-8 h-8 text-blue-600 mx-auto" />
+              <ArrowRight className="w-8 h-8 text-gray-900 mx-auto" />
             </motion.div>
           </motion.div>
         </div>
@@ -145,37 +145,37 @@ const Projects = () => {
           return (
             <div
               key={project.name}
-              className={`project-card shrink-0 w-screen h-screen ${project.color} p-8 md:p-16 lg:p-24 flex flex-col justify-center items-center text-center`}
+              className={`project-card shrink-0 w-screen h-screen bg-gray-100 p-8 md:p-16 lg:p-24 flex flex-col justify-center items-center text-center border-r border-gray-300`}
             >
               <div className="max-w-4xl">
                 <div className="flex items-center justify-center mb-8">
-                  <div className="p-6 rounded-2xl bg-white/20 backdrop-blur-sm">
-                    <Icon className="w-12 h-12 text-white" />
+                  <div className="p-6 rounded-2xl bg-gray-200">
+                    <Icon className="w-12 h-12 text-gray-700" />
                   </div>
                 </div>
-                <span className="text-white/50 text-sm font-medium tracking-widest">
+                <span className="text-gray-500 text-sm font-medium tracking-widest">
                   {String(index + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
                 </span>
-                <h3 className="text-white text-3xl md:text-4xl lg:text-6xl font-bold mt-4 mb-6">
+                <h3 className="text-black text-3xl md:text-4xl lg:text-6xl font-bold mt-4 mb-6">
                   {project.name}
                 </h3>
-                <p className="text-white/80 text-lg md:text-xl lg:text-2xl leading-relaxed mb-8 max-w-3xl mx-auto">
+                <p className="text-gray-600 text-lg md:text-xl lg:text-2xl leading-relaxed mb-8 max-w-3xl mx-auto">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap justify-center gap-3 mb-8">
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-4 py-2 text-sm md:text-base rounded-full bg-white/20 text-white backdrop-blur-sm"
+                      className="px-4 py-2 text-sm md:text-base rounded-full bg-gray-200 text-gray-700"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
-                <ul className="flex flex-wrap justify-center gap-6 text-sm md:text-base text-white/70 mb-10">
+                <ul className="flex flex-wrap justify-center gap-6 text-sm md:text-base text-gray-500 mb-10">
                   {project.features.map((f) => (
                     <li key={f} className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-white" />
+                      <span className="w-2 h-2 rounded-full bg-gray-400" />
                       {f}
                     </li>
                   ))}

@@ -73,7 +73,7 @@ const Hero = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ ...transition, delay: 0.2 }}
-              className="text-blue-600 font-semibold text-sm tracking-widest uppercase mb-4"
+              className="text-gray-900 font-semibold text-sm tracking-widest uppercase mb-4"
             >
               Full-Stack Developer
             </motion.p>
@@ -117,7 +117,7 @@ const Hero = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full bg-black/10 backdrop-blur-sm flex items-center justify-center text-black hover:bg-blue-500 hover:text-white transition-colors"
+                    className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-900 hover:bg-gray-800 hover:text-white transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, y: 20 }}
@@ -138,7 +138,7 @@ const Hero = () => {
             transition={{ ...transition, delay: 0.4 }}
           >
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-2xl opacity-50" />
+              <div className="absolute -inset-4 bg-gradient-to-r from-gray-300 to-gray-500 rounded-full blur-2xl opacity-50" />
               <img
                 src="/photo_2025-12-08_05-13-07.jpg"
                 alt="Sileshi Abrham"

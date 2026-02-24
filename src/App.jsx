@@ -4,7 +4,6 @@ import Hero from "./components/Hero";
 import SplitReveal from "./components/SplitReveal";
 import About from "./components/About";
 import Projects from "./components/Projects";
-import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
   return (
     <div className="bg-white min-h-screen">
       <NeuralNetwork />
-      <Navigation />
       <main>
         <Hero />
         <SplitReveal
