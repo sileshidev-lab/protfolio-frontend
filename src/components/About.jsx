@@ -69,7 +69,7 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* Education & Certifications - Material Cards */}
+        {/* Education & Certifications - Material 3 Elevated Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {/* Education Card */}
           <motion.div
@@ -77,18 +77,18 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ ...transition, delay: 0.1 }}
             viewport={{ once: true }}
-            className="bg-gray-50 rounded-2xl p-6"
+            className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100"
           >
             <h3 className="text-xl font-medium text-gray-900 mb-6">Academic Education</h3>
             <div className="space-y-4">
               {education.map((item, index) => (
                 <div key={index} className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center shrink-0">
-                    <span className="text-sm font-semibold text-gray-700">{String(index + 1).padStart(2, '0')}</span>
+                  <div className="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center shrink-0">
+                    <span className="text-sm font-bold text-gray-700">{String(index + 1).padStart(2, '0')}</span>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">{item.title}</p>
-                    <p className="text-sm text-gray-600">{item.subtitle}</p>
+                    <p className="font-semibold text-gray-900">{item.title}</p>
+                    <p className="text-sm text-gray-500">{item.subtitle}</p>
                   </div>
                 </div>
               ))}
@@ -101,13 +101,13 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ ...transition, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-gray-50 rounded-2xl p-6"
+            className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100"
           >
             <h3 className="text-xl font-medium text-gray-900 mb-6">Professional Certifications</h3>
-            <div className="space-y-3">
+            <div className="space-y-4">
               {certifications.map((cert, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 shrink-0" />
+                <div key={index} className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-gray-400 mt-2 shrink-0" />
                   <p className="text-gray-700">{cert}</p>
                 </div>
               ))}
@@ -115,25 +115,26 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Skills - Material Chips */}
+        {/* Skills - Material 3 Chips with Container */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ ...transition, delay: 0.3 }}
           viewport={{ once: true }}
+          className="bg-gray-50 rounded-3xl p-8"
         >
           <h3 className="text-xl font-medium text-gray-900 mb-6">Technical Skills</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
             {skillCategories.map((category) => (
-              <div key={category.title}>
-                <p className="text-sm font-medium text-gray-600 uppercase tracking-wider mb-3">
+              <div key={category.title} className="flex flex-col">
+                <p className="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-4">
                   {category.title}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-lg transition-colors"
+                      className="px-4 py-2 bg-white text-gray-800 text-sm font-medium rounded-full shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
                     >
                       {skill}
                     </span>
