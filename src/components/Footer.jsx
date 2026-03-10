@@ -51,9 +51,6 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-sm flex items-center gap-2">
-            Made with <Heart className="w-4 h-4 text-red-500 fill-current" /> in Addis Ababa
-          </p>
           <p className="text-gray-500 text-sm">
             &copy; {new Date().getFullYear()} Sileshi Abrham. All rights reserved.
           </p>
